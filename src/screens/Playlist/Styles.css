@@ -5,8 +5,9 @@
     width: 100%;
 }
 
-/* img{
-    width: 360px;
-    height: 360px;
-    object-fit: cover;
-} */
+button{
+    width: 100px;
+    height: 40px;
+    font-weight: 700;
+    font-size: medium;
+}

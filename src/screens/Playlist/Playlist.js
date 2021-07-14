@@ -1,22 +1,21 @@
 import React from 'react'
 import './Styles.css'
 import data from '../../data'
+import Image from '../../components/Image'
+import Text from '../../components/Text'
+import Button from '../../components/Button'
 
 export default function Playlist() {
-
-    console.log(data)
-
-    const height = data.album.images[1].height
-    const width = data.album.images[1].width
 
     return (
         <div className="playlist-container">
             <h1>Create Playlist</h1>
 
-            <img style={{ height, width }} src={data.album.images[0].url} alt="album" />
-            <p>{data.name}</p>
-            <p>{data.artists[0].name}</p>
-            <p>{data.album.name}</p>
+            <Image url = {data.album.images[1].url} />
+            <Text text={data.name} />
+            <Text text={data.artists[0].name} />
+            <Text text={data.album.name} />
+            <Button name="Select" />
         </div>
     )
 }
