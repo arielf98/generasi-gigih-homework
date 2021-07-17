@@ -1,6 +1,41 @@
+
+.container {
+  padding: 10px 5px;
+  background-color: #293241;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   height: 100%;
   width: 100%;
+}
+
+h1,p, h2 {
+  color: #e0fbfc;
+}
+
+p {
+  margin : 6px 0;
+}
+
+h1, h2 {
+  padding: 0 15px;
+}
+
+button {
+  background-color: #ee6c4d;
+  border-style: none;
+  border-radius: 3px;
+  color: #e0fbfc;
+}
+
+
+
+img {
+  border-radius: 8px;
 }
 

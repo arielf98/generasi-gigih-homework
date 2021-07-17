@@ -1,11 +1,16 @@
 
 
 .playlist-container{
-    height: 100%;
-    width: 100%;
+    padding: 20px 3px;
+    margin: 10px 20px;
+    width: 360px;
+    height:fit-content;
+    background-color: #1d3557;
+    border-radius: 5px;
 }
 
 button{
+    margin: 10px 0;
     width: 100px;
     height: 40px;
     font-weight: 700;
