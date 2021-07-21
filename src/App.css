@@ -1,18 +1,54 @@
 
+
 .container {
-  padding: 10px 5px;
+  padding: 10px 2px;
   background-color: #293241;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App {
-  text-align: center;
+  padding: 0 3px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
+
+.navbar {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-self: end;
+}
+
+.navbar button {
+  margin-left: 70%;
+}
+
+.navbar-icon img {
+  height: 64px;
+  width: 64px;
+  border-radius: 50px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.navbar-icon {
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+  height: 100px;
+  width: 150px;
+  margin-left: 68%;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 h1,p, h2 {
   color: #e0fbfc;
@@ -33,9 +69,24 @@ button {
   color: #e0fbfc;
 }
 
-
+button:hover {
+  cursor: pointer;
+  background-color: #da6e53;
+}
 
 img {
   border-radius: 8px;
+  height: 150px;
+  width: 150px;
 }
+
+.search {
+  width: 100%;
+}
+.search input {
+  width: 80%;
+  margin: 0 10px;
+  height: 40px;
+}
+
 

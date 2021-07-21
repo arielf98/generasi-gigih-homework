@@ -1,12 +1,14 @@
 
 
 .playlist-container{
-    padding: 20px 3px;
-    margin: 10px 20px;
-    width: 360px;
+    margin: 5px 5px;
+    padding: 18px 10px;
+    width: 100%;
     height:fit-content;
     background-color: #1d3557;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
 }
 
 button{
@@ -15,4 +17,8 @@ button{
     height: 40px;
     font-weight: 700;
     font-size: medium;
+}
+
+.playlist-text {
+    margin: 0 15px;
 }
