@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Playlist from './screens/Playlist/Playlist';
+import Playlist from './components/Playlist/Playlist';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import { getTokenFromParams } from './utils'
@@ -8,7 +8,6 @@ import { getTokenFromParams } from './utils'
 function App() {
 
   const [token, setToken] = useState([])
-  // const [query, setQuery] = useState('')
   const [tracks, setTracks] = useState([])
 
   useEffect(() => {
@@ -30,7 +29,6 @@ function App() {
 
         <div className="App">
 
-          
           { token ? 
               tracks.map(song => {
                 return (<Playlist

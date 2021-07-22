@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import ProfileIcon from '../ProfileIcon'
 
-
 export default function Navbar({token}) {
 
     const [userProfile, setUserProfile] = useState({})
@@ -18,7 +17,7 @@ export default function Navbar({token}) {
 
     useEffect(() => {
 
-      const getUserProfile = async () => {
+      async function getUserProfile(){
           
         try {
           const url = 'https://api.spotify.com/v1/me'
@@ -43,14 +42,12 @@ export default function Navbar({token}) {
               {
                 token ? <h1>Create Playlist</h1> : <h1> My Spotify </h1>
               }
-                
                 {
                     isUserProfileEmpty ?  (<button onClick={() => Login()} > Login </button> ) : (<ProfileIcon
                         url={ userProfile?.images[0]?.url || false }
-                        name={userProfile?.display_name} />) 
-                    
+                        name={userProfile?.display_name} />)      
                 }
-               
+
             </div>
         </div>
     )

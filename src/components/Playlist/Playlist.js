@@ -1,8 +1,8 @@
 import React from 'react'
 import './Styles.css'
-import Image from '../../components/Image'
-import Text from '../../components/Text'
-import Button from '../../components/Button'
+import Image from '../Image'
+import Text from '../Text'
+import Button from '../Button'
 
 export default function Playlist({url, name, artist, album}) {
 

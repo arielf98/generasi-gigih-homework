@@ -5,11 +5,9 @@ export default function ProfileIcon({url, name}) {
 
     return (
              <div className="navbar-icon">
-
                     {
-                        url ? (<img src={url} alt="" />) : <CgProfile size={50} color = 'white' /> 
+                        url ? (<img src={url} alt="" />) : (<CgProfile size={50} color = 'white' />) 
                     }
-
                     <p> {name} </p>
                 </div>
     )
