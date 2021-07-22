@@ -7,12 +7,14 @@ import { getTokenFromParams } from './utils'
 
 function App() {
 
-  const [token, setToken] = useState([])
+  const [token, setToken] = useState('')
   const [tracks, setTracks] = useState([])
+  const [selected, setSelected] = useState([])
 
   useEffect(() => {
-    const token = getTokenFromParams().access_token
-    setToken(token)
+      const token = getTokenFromParams().access_token
+      setToken(token)
+
 }, [])
 
   return (
@@ -29,14 +31,19 @@ function App() {
 
         <div className="App">
 
-          { token ? 
+          {
+           token ? 
               tracks.map(song => {
-                return (<Playlist
+                return <Playlist
                   key = {song.id}
+                  uri = {song.uri}
+                  selected={selected}
+                  setSelected={setSelected}
                   url = {song.album.images[1].url}
                   name = {song.album.name}
-                  artist= {song.artists[0].name} 
-                  album = {song.name} />)
+                  artist = {song.artists[0].name} 
+                  album = {song.name} />
+                  
               })  : (<p className="app-body-text"> Selamat Datang Di My Spotify</p>) 
           }
         </div>

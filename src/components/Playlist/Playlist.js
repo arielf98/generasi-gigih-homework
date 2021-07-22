@@ -1,20 +1,37 @@
-import React from 'react'
-import './Styles.css'
-import Image from '../Image'
-import Text from '../Text'
-import Button from '../Button'
 
-export default function Playlist({url, name, artist, album}) {
+import './Styles.css'
+
+export default function Playlist({url, name, artist, album, uri, setSelected, selected}) {
+
+    function selectTracks(){
+        setSelected([...selected, uri])
+    }
+
+    function deselectTracks(){
+        const selectedArray = [...selected]
+        const index = selectedArray.indexOf(uri)
+        if(index > -1){
+            selectedArray.splice(index, 1)
+            setSelected(selectedArray)
+        }
+    }
+
+    const isTrackSelected = selected.includes(uri)
 
     return (
         <div className="playlist-container">
-            <Image url = {url} />
-
+            <img src={url} alt="" />
             <div className="playlist-text">
-                <Text text={name} />
-                <Text text={artist} />
-                <Text text={album} />
-                <Button name="Select" />
+                <p>{name}</p>
+                <p>{artist}</p>
+                <p>{album}</p>
+                <button
+                className={isTrackSelected && 'selected-button'}
+                onClick={() => isTrackSelected ?  
+                                deselectTracks() : 
+                                selectTracks()}>  
+                    {isTrackSelected ? 'Selected' : 'Select'} 
+                </button>
             </div>
         </div>
     )
