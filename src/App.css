@@ -103,4 +103,11 @@ img {
   border-radius: 3px;
 }
 
+.selected-button{
+  background-color: grey;
+}
+.selected-button:hover{
+  background-color: rgb(94, 94, 94);
+}
+
 

@@ -16,22 +16,23 @@ export default function Navbar({token}) {
     }
 
     useEffect(() => {
+      
+    async function getUserProfile(){
+      try {
+        const url = 'https://api.spotify.com/v1/me'
+        const result  = await axios.get(url, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+        })
+        setUserProfile(result.data)
+      } catch (err) {
+        console.error(err);
+      }
+  }
+     getUserProfile()
 
-      async function getUserProfile(){
-          
-        try {
-          const url = 'https://api.spotify.com/v1/me'
-          const result  = await axios.get(url, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            },
-          })
-          setUserProfile(result.data)
-        } catch (err) {
-          console.error(err);
-        }
-}
-        getUserProfile()
+     return () => getUserProfile()
     }, [token])
 
     const isUserProfileEmpty = Object.keys(userProfile).length === 0 && userProfile.constructor === Object
@@ -43,7 +44,8 @@ export default function Navbar({token}) {
                 token ? <h1>Create Playlist</h1> : <h1> My Spotify </h1>
               }
                 {
-                    isUserProfileEmpty ?  (<button onClick={() => Login()} > Login </button> ) : (<ProfileIcon
+                    isUserProfileEmpty ?  (<button onClick={() => Login()} > Login </button> ) :
+                     (<ProfileIcon
                         url={ userProfile?.images[0]?.url || false }
                         name={userProfile?.display_name} />)      
                 }
