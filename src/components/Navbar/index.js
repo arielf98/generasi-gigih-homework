@@ -2,20 +2,19 @@ import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import ProfileIcon from '../ProfileIcon'
 
+
 export default function Navbar({token}) {
 
-    const [userProfile, setUserProfile] = useState([])
+    const [userProfile, setUserProfile] = useState({})
 
     function Login(){
         const scope = 'playlist-modify-private'
         const redirect_uri = 'http://localhost:3000'
         const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID
-        const url = `https://accounts.spotify.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true&scope=${scope}`;
+        const url = `https://accounts.spotify.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true&scope=${scope}`
 
         window.location = url
     }
-
-   
 
     useEffect(() => {
 
@@ -36,18 +35,19 @@ export default function Navbar({token}) {
         getUserProfile()
     }, [token])
 
+    const isUserProfileEmpty = Object.keys(userProfile).length === 0 && userProfile.constructor === Object
 
     return (
         <div>
             <div className="navbar">
-                <h1>Create Playlist</h1>
-
+              {
+                token ? <h1>Create Playlist</h1> : <h1> My Spotify </h1>
+              }
+                
                 {
-                    userProfile.length  === 0  ? 
-                    <button onClick={() => Login()} > Login </button>  :
-                     <ProfileIcon
-                        url={userProfile.images[0]?.url}
-                        name={userProfile.display_name} /> 
+                    isUserProfileEmpty ?  (<button onClick={() => Login()} > Login </button> ) : (<ProfileIcon
+                        url={ userProfile?.images[0]?.url || false }
+                        name={userProfile?.display_name} />) 
                     
                 }
                

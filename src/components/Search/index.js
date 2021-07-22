@@ -1,8 +1,25 @@
-import React from 'react'
+import axios from 'axios';
+import {useState} from 'react'
+
+export default function Search({ token, setTracks}) {
+
+    const [query, setQuery] = useState('')
+
+    async function handleSearch ()  {
 
 
-export default function Search({handleSearch, query, setQuery}) {
-
+            try {
+                let url = 'https://api.spotify.com/v1/search?q='+query+'&type=track,artist';
+                const result  = await axios.get(url, {
+                  headers: {
+                    'Authorization': `Bearer ${token}`
+                  },
+                })
+                  setTracks(result.data.tracks.items);
+              } catch (err) {
+                console.error(err);
+              }
+    }
 
     return (
         <div className = "search">
@@ -11,7 +28,7 @@ export default function Search({handleSearch, query, setQuery}) {
             type="text" 
             value={query}
             placeholder='Search....'/>
-            <button onClick={handleSearch} > Search </button>
+            <button onClick={handleSearch}> Search </button>
         </div>
     )
 }

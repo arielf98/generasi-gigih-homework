@@ -2,8 +2,6 @@
 
 .container {
   padding: 10px 2px;
-  background-color: #293241;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App {
@@ -13,6 +11,15 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+}
+
+.app-body-text {
+  font-size: xx-large;
+  display: flex;
+  margin-top: 10%;
+  background-color: #293241;
+  justify-self: center;
+  align-self: center;
 }
 
 .navbar {
@@ -36,6 +43,10 @@
   margin-top: 10px;
 }
 
+.navbar-icon p {
+  background-color: #293241;
+}
+
 .navbar-icon {
   box-sizing: border-box;
   display: flex;
@@ -56,6 +67,7 @@ h1,p, h2 {
 
 p {
   margin : 6px 0;
+  background-color: #1d3557;
 }
 
 h1, h2 {
@@ -87,6 +99,8 @@ img {
   width: 80%;
   margin: 0 10px;
   height: 40px;
+  background-color: azure;
+  border-radius: 3px;
 }
 
 
