@@ -1,12 +1,8 @@
-import axios from 'axios'
-import React, {useEffect, useState} from 'react'
 import ProfileIcon from '../ProfileIcon'
 
-export default function Navbar({token}) {
+export default function Navbar({token, userProfile}) {
 
-    const [userProfile, setUserProfile] = useState({})
-
-    function Login(){
+      function Login(){
         const scope = 'playlist-modify-private'
         const redirect_uri = 'http://localhost:3000'
         const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID
@@ -14,26 +10,6 @@ export default function Navbar({token}) {
 
         window.location = url
     }
-
-    useEffect(() => {
-      
-    async function getUserProfile(){
-      try {
-        const url = 'https://api.spotify.com/v1/me'
-        const result  = await axios.get(url, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          },
-        })
-        setUserProfile(result.data)
-      } catch (err) {
-        console.error(err);
-      }
-  }
-     getUserProfile()
-
-     return () => getUserProfile()
-    }, [token])
 
     const isUserProfileEmpty = Object.keys(userProfile).length === 0 && userProfile.constructor === Object
 

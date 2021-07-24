@@ -1,0 +1,45 @@
+
+.create-playlist-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    height: 300px;
+    width: 100%;
+}
+
+label {
+    color: aliceblue;
+    font-weight: 600;
+}
+
+input {
+    margin: 10px;
+    width: 300px;
+    height: 30px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input[type="submit"]{
+    background-color: #ee6c4d;
+    color: #e0fbfc;
+    border-style: none;
+}
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #da6e53;
+
+}
+
+.create-playlist-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: -100px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4c5669;
+}
