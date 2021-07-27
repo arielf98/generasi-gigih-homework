@@ -1,6 +1,9 @@
 import ProfileIcon from '../ProfileIcon'
+import { useSelector } from 'react-redux'
 
-export default function Navbar({token, userProfile}) {
+export default function Navbar({userProfile}) {
+
+      const token = useSelector(state => state.userData?.token)
 
       function Login(){
         const scope = 'playlist-modify-private'
@@ -19,6 +22,7 @@ export default function Navbar({token, userProfile}) {
               {
                 token ? <h1>Create Playlist</h1> : <h1> My Spotify </h1>
               }
+
                 {
                     isUserProfileEmpty ?  (<button onClick={() => Login()} > Login </button> ) :
                      (<ProfileIcon

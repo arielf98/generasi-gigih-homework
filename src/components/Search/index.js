@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
-export default function Search({ token, setTracks}) {
+export default function Search({ setTracks, selected, setShowModal }) {
 
     const [query, setQuery] = useState('')
+    const token = useSelector(state => state.userData?.token)
 
     async function handleSearch ()  {
 
@@ -23,14 +25,27 @@ export default function Search({ token, setTracks}) {
             }
     }
 
+    function handleCreate(){
+      setShowModal(true)
+    }
+
     return (
+      
         <div className = "search">
-            <input
-            onChange={(e) => setQuery(e.target.value)} 
-            type="text" 
-            value={query}
-            placeholder='Search....'/>
-            <button onClick={handleSearch}> Search </button>
-        </div>
+              <input
+              onChange={(e) => setQuery(e.target.value)} 
+              type="text" 
+              value={query}
+              placeholder='Search....'/>
+              <button onClick={handleSearch}> Search </button>
+              {
+                selected.length > 0 && (<button onClick={handleCreate}> Create Playlist </button>)
+              }
+              
+          </div>
+
+        
+    
+       
     )
 }
