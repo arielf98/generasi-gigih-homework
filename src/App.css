@@ -33,7 +33,11 @@
 }
 
 .navbar button {
-  margin-left: 70%;
+  margin-left: 50px;
+}
+
+.navbar h1 {
+  margin-right: 60%;
 }
 
 .navbar-icon img {
@@ -50,7 +54,6 @@
   overflow: hidden;
   height: 100px;
   width: 150px;
-  margin-left: 68%;
   overflow: hidden;
   flex-direction: column;
   justify-content: center;

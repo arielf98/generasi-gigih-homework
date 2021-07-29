@@ -1,55 +1,68 @@
 import TrackList from '../TrackList/TrackList'
 import Navbar from '../Navbar'
 import Search from '../Search'
-import { getTokenFromParams } from '../../utils'
 import { useState, useEffect } from 'react'
 import CreatePlaylist from '../CreatePlaylist'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
-import { storeToken } from '../../redux/userDataSlice'
+import { storeToken, storeUserProfile } from '../../redux/userDataSlice'
+import { getTokenFromParams } from '../../utils'
+import { useHistory } from 'react-router'
 
 export default function PlayList() {
     
  
   const token = useSelector(state => state.userData?.token)
   const dispatch = useDispatch()
+  const history = useHistory()
+
+  const state = useSelector(state => state.userData?.userProfile)
+  console.log(state)
 
   const [tracks, setTracks] = useState([])
   const [selected, setSelected] = useState([])
   const [userProfile, setUserProfile] = useState({})
   const [showModal, setShowModal] = useState(false)
 
-  useEffect(() => {
-    const token = getTokenFromParams().access_token
-    dispatch(storeToken(token))
+  
 
-    async function getUserProfile(){
-        try {
-          const url = 'https://api.spotify.com/v1/me'
-          const result  = await axios.get(url, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            },
-          })
-          setUserProfile(result.data)
-        } catch (err) {
-          console.error(err);
-        }
-    }
-    getUserProfile()
+  useEffect(() => {
+    // const token = getTokenFromParams().access_token
+    // dispatch(storeToken(token))
+
+ 
+   
+    // async function getUserProfile(){
+    //     try {
+    //       const url = 'https://api.spotify.com/v1/me'
+    //       const result  = await axios.get(url, {
+    //         headers: {
+    //           'Authorization': `Bearer ${token}`
+    //         },
+    //       })
+    //       setUserProfile(result.data)
+    //       dispatch(storeUserProfile(result.data))
+    //     } catch (err) {
+    //       console.error(err);
+    //     }
+    // }
+    // getUserProfile()
 
 }, [dispatch])
 
+console.log('ini token', token)
+
     return (
         <>
+          
                 <Navbar
+                    setShowModal={setShowModal}
                     userProfile={userProfile} />       
 
             {
             token &&  (
 
                     <Search
-                      showModal={showModal}
                       setShowModal={setShowModal}
                       selected={selected}
                       setTracks={setTracks} />
@@ -68,7 +81,6 @@ export default function PlayList() {
             <div className="App">
 
                 {
-                token ? 
                     tracks.map(song => {
                         return (
                         <TrackList
@@ -83,7 +95,7 @@ export default function PlayList() {
                         album = {song.name} />
                         )
                         
-                    }) : (<p className="app-body-text"> Selamat Datang Di My Spotify</p>) 
+                    }) 
                 }
             </div>
         </>

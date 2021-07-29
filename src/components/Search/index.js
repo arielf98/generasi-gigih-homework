@@ -38,9 +38,9 @@ export default function Search({ setTracks, selected, setShowModal }) {
               value={query}
               placeholder='Search....'/>
               <button onClick={handleSearch}> Search </button>
-              {
-                selected.length > 0 && (<button onClick={handleCreate}> Create Playlist </button>)
-              }
+             {
+               selected.length > 0 && <button onClick={handleCreate}> Create </button>
+             } 
               
           </div>
 
