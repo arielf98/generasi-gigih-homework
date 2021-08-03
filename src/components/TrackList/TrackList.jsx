@@ -37,9 +37,7 @@ export default function TrackList({
             ? deselectTracks()
             : selectTracks())}
         >
-
           {isTrackSelected ? 'Selected' : 'Select'}
-
         </button>
       </div>
     </div>

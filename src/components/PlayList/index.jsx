@@ -3,19 +3,13 @@
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { useHistory } from 'react-router';
 import TrackList from '../TrackList/TrackList';
 import Navbar from '../Navbar';
 import Search from '../Search';
 import CreatePlaylist from '../CreatePlaylist';
-// import { storeToken, storeUserProfile } from '../../redux/userDataSlice';
-// import { getTokenFromParams } from '../../utils';
 
 export default function PlayList() {
   const token = useSelector((state) => state.userData?.token);
-  // const dispatch = useDispatch();
-  // const history = useHistory();
-  // const state = useSelector((state) => state.userData?.userProfile);
 
   const [tracks, setTracks] = useState([]);
   const [selected, setSelected] = useState([]);
