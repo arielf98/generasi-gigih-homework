@@ -1,14 +1,18 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { searchType, stateType } from '../../Type/Type';
 
-export default function Search({ setTracks, selected, setShowModal }) {
-  const [query, setQuery] = useState('');
-  const token = useSelector((state) => state.userData?.token);
+export default function Search({ setTracks, selected, setShowModal }: searchType) {
+  const [query, setQuery] = useState<string>('');
+  const token = useSelector((state: stateType) => state.userData?.token);
 
-  async function handleSearch() {
+  async function handleSearch(): Promise<void> {
     if (query !== '') {
       try {
         const url = `https://api.spotify.com/v1/search?q=${query}&type=track,artist`;

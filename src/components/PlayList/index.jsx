@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -54,7 +56,7 @@ export default function PlayList() {
             <TrackList
               key={song.id}
               uri={song.uri}
-              token={token}
+              // token={token}
               selected={selected}
               setSelected={setSelected}
               url={song.album.images[1].url}

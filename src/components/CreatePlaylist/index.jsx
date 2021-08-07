@@ -17,6 +17,7 @@ export default function CreatePlaylist({
   });
 
   const token = useSelector((state) => state.userData?.token);
+  console.log('token', token);
 
   function handleOnchange(e) {
     const { name } = e.target;
