@@ -2,6 +2,9 @@ export type stateType =  {
   userData : {
     token: string,
     isLogin: boolean,
+    userProfile: {
+      id: string
+    }
   }
 }
  type imagesType = {

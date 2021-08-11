@@ -7,7 +7,7 @@ export const userDataSlice = createSlice({
   name: 'userData',
   initialState: {
     token: '',
-    userProfile: {},
+    userProfile: [],
     isLogin: false,
   },
   reducers: {

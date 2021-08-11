@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 export default function CreatePlaylist({
-  selected, userProfile, setShowModal, showModal, setSelected,
+  selected, setShowModal, showModal, setSelected,
 }) {
   const [form, setForm] = useState({
     nama: '',
@@ -17,7 +17,7 @@ export default function CreatePlaylist({
   });
 
   const token = useSelector((state) => state.userData?.token);
-  console.log('token', token);
+  const userId = useSelector((state) => state.userData?.userProfile.id);
 
   function handleOnchange(e) {
     const { name } = e.target;
@@ -53,7 +53,7 @@ export default function CreatePlaylist({
     try {
       const config = {
         method: 'post',
-        url: `https://api.spotify.com/v1/users/${userProfile.id}/playlists`,
+        url: `https://api.spotify.com/v1/users/${userId}/playlists`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -64,14 +64,13 @@ export default function CreatePlaylist({
         },
       };
       const result = await axios(config);
-      // setPlaylistId(result.data.id)
       addToPlaylist(result.data.id);
       alert('Playlist Berhasil Dibuat');
       setForm({ nama: '', deskripsi: '' });
       handleHideModal();
       setSelected([]);
     } catch (e) {
-      // console.log(e);
+      alert('Ada yang salah');
     }
   }
 

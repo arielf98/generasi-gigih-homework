@@ -46,7 +46,7 @@ export default function Navbar() {
           },
         });
         // setUserProfile(result.data)
-        dispatch(storeUserProfile(result.data));
+        dispatch(storeUserProfile([result.data]));
       } catch (err) {
         // console.error(err);
       }
@@ -72,28 +72,38 @@ export default function Navbar() {
     getUserProfile();
   }, [dispatch]);
 
-  const isUserProfileEmpty = Object.keys(userProfile).length === 0 && userProfile.constructor === Object;
+  // const isUserProfileEmpty = Object.keys(userProfile)?.length === 0 && userProfile?.constructor === Object;
+  const isUserProfileEmpty = userProfile?.length === 1;
+
+  const checkUserProfile = (profile) => (profile ? (
+    <ProfileIcon
+      url={userProfile[0]?.images[0]?.url}
+      name={userProfile[0]?.display_name}
+    />
+  ) : (<button type="button" data-testid="login" onClick={() => Login()}> Login </button>)
+  );
 
   return (
     <div>
       <div className="navbar">
         {
-          token ? <h1>Create Playlist</h1> : <h1> My Spotify </h1>
+          token ? <h1>Create Playlist</h1> : <h1 data-testid="text-navbar"> My Spotify </h1>
         }
 
-        <button type="button" onClick={handleCreatePlaylist}> Create Playlist </button>
+        <button type="button" data-testid="create-playlist" onClick={handleCreatePlaylist}> Create Playlist </button>
         {
           token && <button type="button" onClick={handleLogOut}> Log Out </button>
         }
 
         {
-          isUserProfileEmpty ? (<button type="button" onClick={() => Login()}> Login </button>)
-            : (
-              <ProfileIcon
-                url={userProfile?.images[0]?.url}
-                name={userProfile?.display_name}
-              />
-            )
+          // isUserProfileEmpty ? (<button type="button" onClick={() => Login()}> Login </button>)
+          //   : (
+          //     <ProfileIcon
+          //       url={userProfile?.images[0]?.url}
+          //       name={userProfile?.display_name}
+          //     />
+          //   )
+          checkUserProfile(isUserProfileEmpty)
         }
 
       </div>
