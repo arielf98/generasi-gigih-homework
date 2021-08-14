@@ -34,7 +34,7 @@ export default function TrackList({
         <p>{album}</p>
         <button
           type="button"
-          className={isTrackSelected && 'selected-button'}
+          className={isTrackSelected ? 'selected-button' : 'undefined'}
           onClick={() => (isTrackSelected
             ? deselectTracks()
             : selectTracks())}
