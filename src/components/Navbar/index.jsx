@@ -19,7 +19,8 @@ export default function Navbar() {
 
   function Login() {
     const scope = 'playlist-modify-private';
-    const redirectUri = 'http://localhost:3000';
+    // const redirectUri = 'http://localhost:3000';
+    const redirectUri = 'https://generasi-gigih-homework-amber.vercel.app/';
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true&scope=${scope}`;
     dispatch(isLogin(true));
