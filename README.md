@@ -5,9 +5,9 @@ yang diinginkan tanpa harus membuka aplikasi pada spotify.
 ## Feature 
 feature yang tersedia :
 - tambah playlist 
-- search lagu 
+- search tracks 
 - logout 
-- login 
+- login
 
 ## Cara menjalankan aplikasi
 untuk menggunakan aplikasi pada localhost ketikan `yarn` pada command line. pastikan anda berada di directory dimana aplikasi diletakkan.
