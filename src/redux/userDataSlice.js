@@ -9,6 +9,7 @@ export const userDataSlice = createSlice({
     token: '',
     userProfile: [],
     isLogin: false,
+    tracks: [],
   },
   reducers: {
     storeToken: (state, action) => {
@@ -20,10 +21,15 @@ export const userDataSlice = createSlice({
     isLogin: (state, action) => {
       state.isLogin = action.payload;
     },
+    storeTracks: (state, action) => {
+      state.tracks = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { storeToken, storeUserProfile, isLogin } = userDataSlice.actions;
+export const {
+  storeToken, storeUserProfile, isLogin, storeTracks,
+} = userDataSlice.actions;
 
 export default userDataSlice.reducer;

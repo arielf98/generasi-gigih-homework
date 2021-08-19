@@ -1,0 +1,191 @@
+.playlist-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1.4fr 1.2fr;
+  grid-template-rows: 0.3fr 1.7fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "playlist-sidebar playlist-navbar playlist-navbar"
+    "playlist-sidebar playlist-main playlist-main"
+    "playlist-sidebar playlist-main playlist-main";
+  width: 100%;
+  height: 100%;
+  background-color: #293241;;
+  margin: 0;
+}
+
+.playlist-sidebar { 
+  grid-area: playlist-sidebar;
+  border-right: 1px #dbd9d8 solid;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+ }
+
+ ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.sidebar-text{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar-text a {
+  text-decoration: none;
+}
+
+.sidebar-text button {
+  background-color: #293241;;
+}
+.sidebar-text button:hover {
+  background-color: #293241;;
+}
+
+.playlist-navbar { 
+  grid-area: playlist-navbar;
+  border-bottom: 1px #dbd9d8 solid ;
+  height: fit-content;
+  padding-bottom: 10px;
+ }
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.searchbar{
+  width: 100%;
+}
+
+.searchbar input{
+  padding: 18px;
+  width: 60%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+  border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+.searchbar button{
+  background-color: #ee6c4d;
+  border: none;
+  
+}
+.searchbar button:hover{
+  background-color: #b4573f;
+  cursor: pointer;
+  border: none;
+}
+
+.navbar img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+.playlist-main { 
+  grid-area: playlist-main;
+  padding: 10px 10px;
+  overflow: scroll;
+  height: 80vh
+ }
+
+ .playlist-main h1 {
+   position: fixed;
+ }
+
+ .playlist-main::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome browsers */
+}
+
+.track-container{
+  margin-top: 100px;
+  margin-bottom: -90px;
+}
+
+.track-title{
+  height: 100px;
+  margin-top: -10px;
+  width: 90%;
+  background-color: #293241;;
+  position: fixed;
+  z-index: 20;
+}
+
+.playlist-main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;  /* mozilla */
+}
+
+ .track-card{
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   justify-content: space-between;
+   padding: 0 15px;
+   align-items: center;
+   height: fit-content;
+   /* background-color: rgb(173, 171, 165); */
+   margin-bottom: 10px;
+   /* border-radius: 5px; */
+/* From https://css.glass */
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.29);
+ }
+
+ .track-card img {
+   height: 150px;
+   width: 170px;
+   object-fit: cover;
+   padding: 10px 10px;
+   border-radius: 5px;
+ }
+
+ .track-card p {
+   margin: 0 5px;
+ }
+
+ button[type="submit"]{
+   background-color: #ee6c4d;
+   border: none;
+ }
+
+ button[type="submit"]:hover{
+   background-color: #b4573f;
+   cursor: pointer;
+   border: none;
+ }
+
+ .track-text{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+ }
+
+ .track-image{
+   display: flex;
+   flex-direction: row;
+ }
+
+ .btn-deselect{
+  background-color: #77716f;
+ }

@@ -5,14 +5,16 @@
 /* eslint-disable import/no-unresolved */
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchType, stateType } from '../../Type/Type';
+import { storeTracks } from '../../redux/userDataSlice';
 
-export default function Search({ setTracks, selected, setShowModal }: searchType) {
-  const [query, setQuery] = useState<string>('');
-  const token = useSelector((state: stateType) => state.userData?.token);
-
-  async function handleSearch(): Promise<void> {
+export default function Search() {
+  const [query, setQuery] = useState('');
+  const token = useSelector((state) => state.userData?.token);
+  const tracks = useSelector((state) => state.userData?.tracks);
+  const dispatch = useDispatch();
+  const handleSearch = async () => {
     if (query !== '') {
       try {
         const url = `https://api.spotify.com/v1/search?q=${query}&type=track,artist`;
@@ -21,21 +23,17 @@ export default function Search({ setTracks, selected, setShowModal }: searchType
             Authorization: `Bearer ${token}`,
           },
         });
-        setTracks(result.data.tracks.items);
+        console.log(result.data.tracks.items);
+        dispatch(storeTracks(result.data.tracks.items));
         setQuery('');
       } catch (err) {
-        // console.error(err);
+        console.error(err);
       }
     }
-  }
-
-  function handleCreate() {
-    setShowModal(true);
-  }
-
+  };
   return (
 
-    <div className="search">
+    <div className="searchbar">
       <input
         onChange={(e) => setQuery(e.target.value)}
         type="text"
@@ -43,10 +41,6 @@ export default function Search({ setTracks, selected, setShowModal }: searchType
         placeholder="Search...."
       />
       <button type="button" onClick={handleSearch}> Search </button>
-      {
-        selected.length > 0 && <button type="button" onClick={handleCreate}> Create </button>
-      }
-
     </div>
 
   );

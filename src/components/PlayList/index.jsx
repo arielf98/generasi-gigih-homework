@@ -2,71 +2,50 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
+/* eslint-disable no-unused-expressions */
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import TrackList from '../TrackList/TrackList';
+// import TrackList from '../TrackList/TrackList';
+import { useHistory } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Search from '../Search';
 import CreatePlaylist from '../CreatePlaylist';
+import './style.css';
+import SideBar from '../SideBar';
+import TrackList from '../TrackList/TrackList';
 
 export default function PlayList() {
+  const isLogin = useSelector((state) => state.userData?.isLogin);
   const token = useSelector((state) => state.userData?.token);
-
-  const [tracks, setTracks] = useState([]);
-  const [selected, setSelected] = useState([]);
-  const [userProfile, setUserProfile] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [selectedTracks, setSelectedTracks] = useState([]);
+  const history = useHistory();
+
+  token ? history.push('/playlist') : history.push('/');
 
   return (
-    <>
-
-      <Navbar
+    <div className="playlist-container">
+      <CreatePlaylist
+        showModal={showModal}
         setShowModal={setShowModal}
-        userProfile={userProfile}
+        setSelected={setSelectedTracks}
+        selected={selectedTracks}
       />
 
-      {
-        token && (
+      <Navbar />
+      <SideBar
+        selected={selectedTracks}
+        setShowModal={setShowModal}
+        showModal={showModal}
+      />
 
-          <Search
-            setShowModal={setShowModal}
-            selected={selected}
-            setTracks={setTracks}
-          />
-        )
-      }
-
-      {
-        showModal && (
-          <CreatePlaylist
-            setSelected={setSelected}
-            userProfile={userProfile}
-            selected={selected}
-            showModal={showModal}
-            setShowModal={setShowModal}
-          />
-        )
-      }
-
-      <div className="App">
-
-        {
-          tracks.map((song) => (
-            <TrackList
-              key={song.id}
-              uri={song.uri}
-              // token={token}
-              selected={selected}
-              setSelected={setSelected}
-              url={song.album.images[1].url}
-              name={song.album.name}
-              artist={song.artists[0].name}
-              album={song.name}
-            />
-          ))
-        }
-      </div>
-    </>
+      <TrackList
+        selected={selectedTracks}
+        setSelected={setSelectedTracks}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+    </div>
   );
 }

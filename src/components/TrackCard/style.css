@@ -1,0 +1,6 @@
+.track-card .btn-deselect {
+  background-color: rgb(143, 143, 143);
+}
+.track-card .btn-deselect:hover {
+  background-color: rgb(170, 168, 168);
+}

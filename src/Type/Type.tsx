@@ -1,4 +1,4 @@
-export type stateType =  {
+export type stateType = {
   userData : {
     token: string,
     isLogin: boolean,
@@ -26,14 +26,14 @@ export type songType = {
 }
 export type trackListType = {
   url: string,
-  name: string, 
-  artist: string, 
-  album: string, 
-  uri: string, 
-  setSelected: any, 
-  selected: any 
+  name: string,
+  artist: string,
+  album: string,
+  uri: string,
+  setSelected: any,
+  selected: any
 }
-  export type searchType = {
+export type searchType = {
     setTracks: any,
     selected: any,
     setShowModal: any,

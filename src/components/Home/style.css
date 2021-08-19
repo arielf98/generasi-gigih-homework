@@ -1,0 +1,31 @@
+.home {
+  padding: 0 3px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160px;
+}
+
+.home-body-text {
+  font-size: xx-large;
+  display: flex;
+  margin-top: 10%;
+  background-color: #293241;
+  justify-self: center;
+  align-self: center;
+}
+
+button{
+  padding: 12px 20px;
+  background-color: #ee6c4d;
+  border: none;
+}
+
+button:hover{
+  padding: 12px 20px;
+  background-color: #b34b31;
+  border: none;
+  cursor: pointer;
+}
