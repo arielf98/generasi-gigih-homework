@@ -1,7 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { MdPlaylistAdd, MdFeaturedPlayList, MdInput } from 'react-icons/md';
-import { Link, useHistory } from 'react-router-dom';
+import { MdPlaylistAdd, MdInput } from 'react-icons/md';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
   isLogin, storeUserProfile, storeTracks, storeToken,
@@ -12,7 +13,7 @@ export default function SideBar({ setShowModal, selected }) {
   const history = useHistory();
   const showModalComp = () => {
     if (selected.length === 0) {
-      return alert('isi minimal 1 lagu');
+      return alert('isi minimal 1 track');
     }
     return setShowModal(true);
   };
@@ -40,14 +41,6 @@ export default function SideBar({ setShowModal, selected }) {
               Create Playlist
             </button>
           </li>
-
-          <li>
-            <button type="button">
-              <MdFeaturedPlayList size={25} />
-              <Link to="/my-playlist"> My Playlist </Link>
-            </button>
-          </li>
-
           <li>
             <button
               onClick={() => handleLogOut()}

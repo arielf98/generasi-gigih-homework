@@ -6,10 +6,8 @@
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import TrackList from '../TrackList/TrackList';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../Navbar';
-import Search from '../Search';
 import CreatePlaylist from '../CreatePlaylist';
 import './style.css';
 import SideBar from '../SideBar';

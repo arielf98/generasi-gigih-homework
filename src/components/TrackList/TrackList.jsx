@@ -9,8 +9,6 @@ import TrackCard from '../TrackCard';
 
 export default function TrackList({ setSelected, selected }) {
   const tracks = useSelector((state) => state.userData?.tracks);
-  const userId = useSelector((state) => state.userData?.userProfile.id);
-  console.log('user id', userId);
 
   return (
 

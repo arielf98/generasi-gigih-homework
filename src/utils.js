@@ -1,7 +1,9 @@
 /* eslint-disable linebreak-style */
 // eslint-disable-next-line import/prefer-default-export
 export function getTokenFromParams() {
-  const hashParams = {};
+  const hashParams = {
+    access_token: '',
+  };
   let e; const r = /([^&;=]+)=?([^&;]*)/g;
   const q = window.location.hash.substring(1);
   // eslint-disable-next-line no-cond-assign

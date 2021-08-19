@@ -21,10 +21,10 @@ export default function Home() {
     // const redirectUri = 'https://generasi-gigih-homework-amber.vercel.app/';
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true&scope=${scope}`;
-    window.location = url;
+    window.location.href = url;
   };
 
-  const getUserProfile = async (token) => {
+  const getUserProfile = async (token : string) => {
     try {
       const url = 'https://api.spotify.com/v1/me';
       const result = await axios.get(url, {
@@ -34,7 +34,7 @@ export default function Home() {
       });
       dispatch(storeUserProfile(result.data));
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <p className="home-body-text"> Selamat Datang Di My Spotify</p>
+      <p className="home-body-text"> Selamat Datang Di My Album</p>
       <button type="button" onClick={() => Login()}> Login </button>
     </div>
   );

@@ -23,11 +23,10 @@ export default function Search() {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(result.data.tracks.items);
         dispatch(storeTracks(result.data.tracks.items));
         setQuery('');
       } catch (err) {
-        console.error(err);
+        // console.error(err);
       }
     }
   };

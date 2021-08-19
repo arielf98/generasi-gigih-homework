@@ -7,19 +7,13 @@ import Home from '.';
 test('Text Should display', () => {
   render(<Home />);
 
-  const homeText = screen.getByText(/Selamat Datang Di My Spotify/i);
-  const navbarText = screen.getByTestId('text-navbar');
-  expect(navbarText).toBeInTheDocument();
+  const homeText = screen.getByText(/Selamat Datang Di My Album/i);
   expect(homeText).toBeInTheDocument();
 });
 
-test('button should display', async () => {
+test('button should display', () => {
   render(<Home />);
 
-  const btnCreate = await screen.findByTestId('create-playlist');
-  const btnLogin = await screen.findByTestId('login');
-  expect(btnCreate).toBeInTheDocument();
-  expect(btnLogin).toBeInTheDocument();
-
-  screen.debug();
+  const btn = screen.getByRole('button');
+  expect(btn).toBeInTheDocument();
 });
