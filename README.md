@@ -13,4 +13,4 @@ feature yang tersedia :
 untuk menggunakan aplikasi pada localhost ketikan `yarn` pada command line. pastikan anda berada di directory dimana aplikasi diletakkan.
 setelah proses instalasi selesai, ketik `yarn start` untuk memulai aplikasi dalam mode development
 
-untuk melihat demo aplikasi silahkan klik link berikut : [my album](https://link-url-here.org)
+untuk melihat demo aplikasi silahkan klik link berikut : [my album](https://generasi-gigih-homework-amber.vercel.app/)
