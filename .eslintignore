@@ -1,0 +1,8 @@
+src/*.test.js
+src/*.test.jsx
+src/*.test.ts
+src/*.test.tsx
+*test.ts
+*test.tsx
+*test.js
+*test.jsx
