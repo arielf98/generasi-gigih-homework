@@ -26,8 +26,8 @@ export default function Home() {
   const Login = () => {
     const scope = 'playlist-modify-private';
     // const redirectUri = 'http://localhost:3000';
-    const redirectUri = 'http://192.168.0.111:3000';
-    // const redirectUri = 'https://generasi-gigih-homework-jade.vercel.app/';
+    // const redirectUri = 'http://192.168.0.111:3000';
+    const redirectUri = 'https://generasi-gigih-homework-jade.vercel.app/';
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true&scope=${scope}`;
     window.location.href = url;
