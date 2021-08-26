@@ -30,10 +30,26 @@ export default function TrackCard({
         <div className="track-image">
           <img src={image} alt="playlist" />
           <div className="track-text">
-            <p>{artis}</p>
-            <p>{judul}</p>
-            <p>{album}</p>
-            <p>{millisToMinutesAndSeconds(waktu)}</p>
+            <p>
+              Artis :
+              {' '}
+              {artis}
+            </p>
+            <p>
+              Title :
+              {' '}
+              {judul}
+            </p>
+            <p>
+              Album :
+              {' '}
+              {album}
+            </p>
+            <p>
+              Time :
+              {' '}
+              {millisToMinutesAndSeconds(waktu)}
+            </p>
           </div>
         </div>
         <button

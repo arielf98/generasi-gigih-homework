@@ -4,7 +4,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-expressions */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../Navbar';
@@ -14,13 +14,15 @@ import SideBar from '../SideBar';
 import TrackList from '../TrackList/TrackList';
 
 export default function PlayList() {
-  const isLogin = useSelector((state) => state.userData?.isLogin);
+  // const isLogin = useSelector((state) => state.userData?.isLogin);
   const token = useSelector((state) => state.userData?.token);
   const [showModal, setShowModal] = useState(false);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const history = useHistory();
 
-  token ? history.push('/playlist') : history.push('/');
+  useEffect(() => {
+    token ? history.push('/playlist') : history.push('/');
+  }, [token]);
 
   return (
     <div className="playlist-container">

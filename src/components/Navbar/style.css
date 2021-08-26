@@ -1,3 +1,12 @@
 .user-profile-text{
   margin-right: 50px;
 }
+
+.user-name {
+  margin-right: 20px;
+}
+
+.playlist-navbar .navbar img{
+  height: 46px;
+  width: 46px;
+}

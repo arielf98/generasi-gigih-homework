@@ -3,28 +3,17 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-expressions */
 
-import { useSelector } from 'react-redux';
 import React from 'react';
+import NavbarIcon from '../NavbarIcon';
 import Search from '../Search';
 import './style.css';
 
 export default function Navbar() {
-  const userProfile = useSelector((state) => state.userData?.userProfile);
-
   return (
-
     <div className="playlist-navbar">
       <div className="navbar">
         <Search />
-        {
-          userProfile?.images?.length === 0 ? (
-            <p className="user-profile-text">
-              {' '}
-              { userProfile?.display_name.toUpperCase() }
-              {' '}
-            </p>
-          ) : <img src={userProfile?.images} alt="user" />
-        }
+        <NavbarIcon />
       </div>
     </div>
   );

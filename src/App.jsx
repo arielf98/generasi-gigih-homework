@@ -6,21 +6,28 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
 import PlayList from './components/PlayList';
 import Home from './components/Home';
+import PrivateRoute from './Router/PrivateRoute';
+import NotFoundPage from './components/404';
+import Profile from './components/Profile';
 
 function App() {
   return (
+
     <Router>
-      <div className="container">
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/playlist">
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <PrivateRoute path="/playlist">
           <PlayList />
-        </Route>
-      </div>
+        </PrivateRoute>
+        <PrivateRoute path="/profile">
+          <Profile />
+        </PrivateRoute>
+        <Route component={NotFoundPage} />
+      </Switch>
     </Router>
   );
 }

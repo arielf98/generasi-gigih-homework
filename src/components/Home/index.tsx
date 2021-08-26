@@ -5,20 +5,29 @@
 
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { isLogin, storeToken, storeUserProfile } from '../../redux/userDataSlice';
+import { storeToken, storeUserProfile } from '../../redux/userDataSlice';
 import { getTokenFromParams } from '../../utils';
 import './style.css';
 
 export default function Home() {
+  type userType = {
+    token: string,
+    userProfile : [],
+    tracks: [],
+  }
+
+  type userDataType = { userData : userType }
   const dispatch = useDispatch();
   const history = useHistory();
+  const authToken = useSelector<userDataType>((state) => state?.userData?.token);
 
   const Login = () => {
     const scope = 'playlist-modify-private';
     // const redirectUri = 'http://localhost:3000';
-    const redirectUri = 'https://generasi-gigih-homework-jade.vercel.app/';
+    const redirectUri = 'http://192.168.0.111:3000';
+    // const redirectUri = 'https://generasi-gigih-homework-jade.vercel.app/';
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true&scope=${scope}`;
     window.location.href = url;
@@ -41,12 +50,14 @@ export default function Home() {
   useEffect(() => {
     const token = getTokenFromParams().access_token;
     if (token) {
-      history.push('/playlist');
-      dispatch(isLogin(true));
+      getUserProfile(token);
+      dispatch(storeToken(token));
     }
-    dispatch(storeToken(token));
-    getUserProfile(token);
-  }, []);
+  }, [authToken]);
+
+  useEffect(() => {
+    authToken ? history.push('/playlist') : history.push('/');
+  }, [authToken]);
 
   return (
     <div className="home">

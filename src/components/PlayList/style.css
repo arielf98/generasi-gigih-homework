@@ -14,13 +14,13 @@
   margin: 0;
 }
 
-.playlist-sidebar { 
+/* .playlist-sidebar { 
   grid-area: playlist-sidebar;
   border-right: 1px #dbd9d8 solid;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
- }
+ } */
 
  ul {
   list-style-type: none;
@@ -32,7 +32,7 @@ li {
   font-weight: 600;
 }
 
-.sidebar-text{
+/* .sidebar-text{
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -48,11 +48,11 @@ li {
 }
 .sidebar-text button:hover {
   background-color: #293241;;
-}
+} */
 
 .playlist-navbar { 
   grid-area: playlist-navbar;
-  border-bottom: 1px #dbd9d8 solid ;
+  /* border-bottom: 1px #dbd9d8 solid ; */
   height: fit-content;
   padding-bottom: 10px;
  }
@@ -67,7 +67,7 @@ li {
   width: 100%;
 }
 
-.searchbar input{
+.searchbar input[type="text"]{
   padding: 18px;
   width: 60%;
   /* From https://css.glass */
@@ -77,6 +77,7 @@ li {
   backdrop-filter: blur(3.3px);
   -webkit-backdrop-filter: blur(3.3px);
   border: 1px solid rgba(255, 255, 255, 0.29);
+  color: aliceblue;
 }
 
 .searchbar button{
@@ -101,6 +102,9 @@ li {
 .playlist-main { 
   grid-area: playlist-main;
   padding: 10px 10px;
+   border-top: 1px #dbd9d8 solid ;
+   border-left: 1px #dbd9d8 solid ;
+   border-radius: 5px;
   overflow: scroll;
   height: 80vh
  }
@@ -189,3 +193,7 @@ li {
  .btn-deselect{
   background-color: #77716f;
  }
+/* 
+ @media screen and (max-width: ) {
+   
+ } */

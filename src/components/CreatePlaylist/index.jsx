@@ -48,8 +48,8 @@ export default function CreatePlaylist({
     setShowModal(false);
   }
 
-  async function createPlaylist(event) {
-    event.preventDefault();
+  async function createPlaylist(e) {
+    e.preventDefault();
     try {
       const config = {
         method: 'post',
@@ -60,7 +60,7 @@ export default function CreatePlaylist({
         data: {
           name: `${form.nama}`,
           description: `${form.deskripsi}`,
-          public: false,
+          public: 'false',
         },
       };
       const result = await axios(config);
@@ -69,7 +69,8 @@ export default function CreatePlaylist({
       setForm({ nama: '', deskripsi: '' });
       handleHideModal();
       setSelected([]);
-    } catch (e) {
+    } catch (error) {
+      // console.log(error);
       alert('Ada yang salah');
     }
   }

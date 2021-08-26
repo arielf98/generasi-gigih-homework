@@ -74,7 +74,7 @@ h1, h2 {
   padding: 0 15px;
 }
 
-button {
+/* button {
   background-color: #ee6c4d;
   border-style: none;
   border-radius: 3px;
@@ -84,7 +84,7 @@ button {
 button:hover {
   cursor: pointer;
   background-color: #da6e53;
-}
+} */
 
 img {
   border-radius: 8px;
